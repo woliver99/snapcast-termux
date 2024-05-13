@@ -4,5 +4,5 @@ My config to get snapcast working on android with termux and librespot. Requires
 
 # Setup
 
--   Download Snapcast
+-   Download Snapcast and git
 -   Clone Repository

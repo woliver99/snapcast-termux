@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change directory to the location of the script
+cd "$(dirname "$0")" || exit
+
 # Set the Java directory and download URL
 java_dir="./java"
 java_zip_url="https://maplenetwork.ca/hosted_storage/termux-java.zip"
@@ -29,6 +32,9 @@ pkg install zip
 # Extract the Java package
 echo "Extracting Java..."
 unzip -o "$java_zip_file" -d "$java_dir"
+
+# Set Permissions
+chmod +x "$java_dir/bin/*"
 
 # Clean up the zip file
 rm "$java_zip_file"

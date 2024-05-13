@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Change directory to the location of the script
+cd "$(dirname "$0")" || exit
+
 # Get the full output from ifconfig
-ifconfig_output=$(ifconfig)
+ifconfig_output=$(ifconfig 2>/dev/null)
 
 # Extract the IP address for wlan0
 ip=$(echo "$ifconfig_output" | awk '/wlan0:/,0' | grep 'inet ' | awk '{print $2}')

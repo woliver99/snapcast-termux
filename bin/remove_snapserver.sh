@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change directory to the location of the script
+cd "$(dirname "$0")" || exit
+
 # Display TCP servers with line numbers
 echo "Select a TCP server to remove:"
 grep -n '#config:' ./../snapcast/snapserver.conf

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change directory to the location of the script
+cd "$(dirname "$0")" || exit
+
 # Prompt for details
 read -p "Enter IP: " ip
 read -p "Enter port: " port
