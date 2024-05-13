@@ -33,10 +33,10 @@ pkg install zip
 echo "Extracting Java..."
 unzip -o "$java_zip_file" -d "$java_dir"
 
-# Set Permissions
-chmod +x "$java_dir/bin/*"
-
 # Clean up the zip file
 rm "$java_zip_file"
+
+# Set Permissions
+chmod +x "$java_dir/bin/*"
 
 echo "Java installation complete."

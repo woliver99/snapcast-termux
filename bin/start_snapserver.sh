@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the base directory as one level up from the location of the script
-BASE_DIR="$(dirname "$(realpath "$0")")/.."
+BASE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
 
 # Stop the server if it's running
 "$BASE_DIR/bin/stop_snapserver.sh"
