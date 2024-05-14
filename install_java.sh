@@ -32,7 +32,7 @@ function cleanup {
 }
 
 # Check if the zip package is already installed
-if pkg info | grep -q '^zip-'; then
+if dpkg -s zip &>/dev/null; then
     echo "The 'zip' package is already installed."
 else
     echo "The 'zip' package is not installed."
@@ -40,7 +40,7 @@ else
     case $answer in
         [Yy]* )
             echo "Installing 'zip'..."
-            sudo pkg install zip
+            pkg install zip
             ;;
         [Nn]* )
             echo "Installation aborted."
