@@ -4,9 +4,9 @@
 cd "$(dirname "$0")" || exit
 
 # Prompt for details
-read -p "Enter IP: " ip
-read -p "Enter port: " port
-read -p "Enter name: " name
+read -r -p "Enter IP: " ip
+read -r -p "Enter port: " port
+read -r -p "Enter name: " name
 
 # Check if the name already exists in the configuration
 if grep -q "#config:${name}" ./../snapcast/snapserver.conf; then

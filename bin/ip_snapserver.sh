@@ -16,4 +16,4 @@ if [ -z "$ip" ]; then
 fi
 
 # Print IP with port
-echo "Current IP: ${ip}:1780"
+echo "Current IP: ${ip}:80"

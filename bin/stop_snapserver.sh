@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Change directory to the location of the script
 cd "$(dirname "$0")" || exit
 
-# Kill librespot and snapserver processes
-kill $(pgrep -f librespot-player.jar)
-kill $(pgrep -f snapserver)
+bash "./utilities/snapserver_stop.sh"
+bash "./utilities/librespot_stop.sh"
