@@ -15,6 +15,7 @@ jobs:
       - name: Set execute permissions
         run: |
           chmod +x ./install_java.sh
+          chmod +x ./setup.sh
           chmod +x ./bin/*
           chmod +x ./bin/utilities/*
 
