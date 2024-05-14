@@ -17,11 +17,9 @@ fi
 
 # Start snapserver in the background and redirect output
 snapserver -c "$BASE_DIR/snapcast/snapserver.conf" > /dev/null 2>&1 &
+echo "Snapserver started successfully."
 
-# Capture the PID of snapserver
 SNAP_PID=$!
-
-# Save PID to the PID file
 echo $SNAP_PID > "$PID_FILE"
 
 # Function to handle SIGINT

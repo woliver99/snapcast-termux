@@ -22,7 +22,7 @@ if [ ! -p "./pipe/librespot.pcm" ]; then
     mkfifo "./pipe/librespot.pcm"
 fi
 
-bash "./bin/utilities/librespot_start.sh" &
 bash "./bin/utilities/snapserver_start.sh" &
+bash "./bin/utilities/librespot_start.sh" &
 
 bash "./bin/ip_snapserver.sh"

@@ -15,3 +15,7 @@ pkg install git snapcast
 ```bash
 git clone https://github.com/yourusername/snapcast-termux.git && cd snapcast-termux
 ```
+
+# TODO:
+
+-   Restart librespot stream after snapcast restart, Use: https://github.com/librespot-org/librespot-java/tree/dev/api

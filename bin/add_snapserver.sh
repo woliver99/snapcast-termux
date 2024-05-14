@@ -15,7 +15,7 @@ if grep -q "#config:${name}" ./../snapcast/snapserver.conf; then
 fi
 
 # Add to configuration
-echo "tcp://${ip}:${port}?name=${name}&mode=server #config:${name}" >> ./../snapcast/snapserver.conf
+echo "source = tcp://${ip}:${port}?name=${name}&mode=server #config:${name}" >> ./../snapcast/snapserver.conf
 
 # Restart the server
-./restart_snapserver
+bash "./bin/utilities/restart_snapserver.sh"
