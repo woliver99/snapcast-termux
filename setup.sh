@@ -12,10 +12,9 @@ else
     # If not found, add BIN_DIR to the .bashrc
     echo "Adding BIN_DIR to .bashrc..."
     echo "export PATH=\$PATH:$BIN_DIR" >> "$BASHRC"
-    echo "BIN_DIR added to .bashrc successfully."
     echo "Sourcing .bashrc to apply changes..."
     source "$BASHRC"
     echo "Changes applied successfully."
 fi
 
-bash "./install_java.sh"
+bash "$BIN_DIR/../install_java.sh"

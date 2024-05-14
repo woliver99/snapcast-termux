@@ -23,6 +23,9 @@ if [ ! -p "./pipe/librespot.pcm" ]; then
 fi
 
 bash "./bin/utilities/snapserver_start.sh" &
+echo "Snapserver started successfully."
+
 bash "./bin/utilities/librespot_start.sh" &
+echo "Librespot started successfully."
 
 bash "./bin/ip_snapserver.sh"

@@ -15,7 +15,6 @@ fi
 
 # Start librespot in the background as a different user and redirect output
 su -c "(cd '$BASE_DIR/librespot' && '$BASE_DIR/java/bin/java' -jar librespot-player.jar)" > /dev/null 2>&1 &
-echo "Librespot stopped successfully."
 
 LIBRESPOT_PID=$!
 echo $LIBRESPOT_PID > "$PID_FILE"

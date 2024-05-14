@@ -17,7 +17,6 @@ fi
 
 # Start snapserver in the background and redirect output
 snapserver -c "$BASE_DIR/snapcast/snapserver.conf" > /dev/null 2>&1 &
-echo "Snapserver started successfully."
 
 SNAP_PID=$!
 echo $SNAP_PID > "$PID_FILE"
