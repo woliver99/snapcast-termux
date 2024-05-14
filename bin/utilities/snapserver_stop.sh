@@ -8,10 +8,12 @@ if [ -f "$PID_FILE" ]; then
     # Read the PID from the file and kill the process
     kill -SIGINT "$(cat "$PID_FILE")"
     # Wait for the process to exit gracefully
-    wait "$(cat "$PID_FILE")"
+    while kill -0 "$PID" 2>/dev/null; do
+        sleep 1 # wait 1 second before checking again
+    done
     # Remove the PID file
     rm -f "$PID_FILE"
     echo "Snapserver stopped successfully."
 else
-    echo "PID file not found. Is snapserver running?"
+    echo "Snapserver is not running."
 fi
