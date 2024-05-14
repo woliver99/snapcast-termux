@@ -1,0 +1,27 @@
+name: Set Permissions and Commit
+
+on:
+  push:
+    branches:
+      - main  # or your default branch, e.g., master
+
+jobs:
+  set-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Set execute permissions
+        run: |
+          chmod +x ./snapcast-termux/install_java.sh
+          chmod +x ./snapcast-termux/bin/*
+          chmod +x ./snapcast-termux/bin/utilities/*
+
+      - name: Commit and push if changes
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Set file permissions"
+          git push
