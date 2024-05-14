@@ -12,14 +12,11 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: List files
-        run: ls -alh
-
       - name: Set execute permissions
         run: |
-          chmod +x ./snapcast-termux/install_java.sh
-          chmod +x ./snapcast-termux/bin/*
-          chmod +x ./snapcast-termux/bin/utilities/*
+          chmod +x ./install_java.sh
+          chmod +x ./bin/*
+          chmod +x ./bin/utilities/*
 
       - name: Check changes
         run: git status
