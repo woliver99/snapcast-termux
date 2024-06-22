@@ -9,13 +9,11 @@ if [ ! -d "$PIPE_DIR" ]; then
 fi
 
 # Create librespot pipe
-if [ -p "$PIPE_DIR/librespot.pcm" ]; then
-    rm "$PIPE_DIR/librespot.pcm"
+if [ ! -p "$PIPE_DIR/librespot.pcm" ]; then
+    mkfifo "$PIPE_DIR/librespot.pcm"
 fi
-mkfifo "$PIPE_DIR/librespot.pcm"
 
 # Create librespot_resampled pipe
-if [ -p "$PIPE_DIR/librespot_resampled.pcm" ]; then
-    rm "$PIPE_DIR/librespot_resampled.pcm"
+if [ ! -p "$PIPE_DIR/librespot_resampled.pcm" ]; then
+    mkfifo "$PIPE_DIR/librespot_resampled.pcm"
 fi
-mkfifo "$PIPE_DIR/librespot_resampled.pcm"

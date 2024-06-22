@@ -29,8 +29,8 @@ FFMPEG_PID=$!
 function handle_sigint {
     echo "Stopping librespot and FFmpeg..."
     kill -SIGINT "$LIBRESPOT_PID"
-    kill -SIGINT "$FFMPEG_PID"
     wait "$LIBRESPOT_PID"
+    kill -SIGINT "$FFMPEG_PID"
     wait "$FFMPEG_PID"
     rm -f "$PID_FILE"
     exit 0
@@ -41,4 +41,4 @@ trap 'handle_sigint' SIGINT
 
 # Keep script running to maintain trap active
 wait $LIBRESPOT_PID
-wait $FFMPEG_PID
+handle_sigint
