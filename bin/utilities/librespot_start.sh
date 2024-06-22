@@ -21,7 +21,7 @@ LIBRESPOT_PID=$!
 echo $LIBRESPOT_PID > "$PID_FILE"
 
 # Start FFmpeg to resample audio from 44.1kHz to 48kHz and output to a file
-ffmpeg -f s16le -ar 44100 -ac 2 -i "$PIPE_DIR/librespot.pcm" -ar 48000 -f s16le "$PIPE_DIR/librespot_resampled.pcm" &
+ffmpeg -y -f s16le -ar 44100 -ac 2 -i "$PIPE_DIR/librespot.pcm" -ar 48000 -f s16le "$PIPE_DIR/librespot_resampled.pcm" > /dev/null 2>&1 &
 
 FFMPEG_PID=$!
 
