@@ -12,3 +12,8 @@ fi
 if [ ! -p "$PIPE_DIR/librespot.pcm" ]; then
     mkfifo "$PIPE_DIR/librespot.pcm"
 fi
+
+# Create librespot_resampled pipe
+if [ ! -p "$PIPE_DIR/librespot_resampled.pcm" ]; then
+    mkfifo "$PIPE_DIR/librespot_resampled.pcm"
+fi
