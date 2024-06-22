@@ -1,6 +1,6 @@
 # snapcast-termux
 
-My config to get snapcast working on android with termux and librespot. Requires the device to be rooted.
+This is my config to get snapcast working on android with termux and librespot. Requires the device to be rooted.
 
 # Setup
 
@@ -23,6 +23,10 @@ bash "./snapcast-termux/setup.sh"
 ```bash
 snapserver-start.sh
 ```
+
+# Info
+
+You might be wondering why im resampling librespot through ffmpeg. Currently Snap.Net iOS has a [bug](https://github.com/stijnvdb88/Snap.Net/issues/52) where it will crash if its not the default sampleformat. So i just end up resampling the librespot audio witch is 44.1kHz to 48kHz instead of properly fixing the problem.
 
 # TODO:
 
