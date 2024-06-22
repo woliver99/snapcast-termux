@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Change directory to the location of the script
-cd "$(dirname "$0")" || exit
+BASE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+cd "$BASE_DIR" || exit
 
 # Get the full output from ifconfig
 ifconfig_output=$(ifconfig 2>/dev/null)

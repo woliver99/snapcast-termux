@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Change directory to the location of the script
-cd "$(dirname "$0")" || exit
+BASE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+cd "$BASE_DIR" || exit
 
 # Display TCP servers with line numbers
 echo "Select a TCP server to remove:"
-grep -n '#config:' ./../snapcast/snapserver.conf
+grep -n '#config:' "$BASE_DIR/snapcast/snapserver.conf"
 
 # Get user input
 read -r -p "Enter line number: " line_num
 
 # Remove the selected line
-sed -i "${line_num}d" ./../snapcast/snapserver.conf
+sed -i "${line_num}d" "$BASE_DIR/snapcast/snapserver.conf"
 
 # Restart the server
-bash "./bin/utilities/restart_snapserver.sh"
+bash "$BASE_DIR/bin/restart_snapserver.sh"

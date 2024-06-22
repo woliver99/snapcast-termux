@@ -1,31 +1,30 @@
 name: Set Permissions and Commit
 
 on:
-  push:
-    branches:
-      - main  # or your default branch, e.g., master
+    push:
+        branches:
+            - main # or your default branch, e.g., master
 
 jobs:
-  set-permissions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
+    set-permissions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v2
 
-      - name: Set execute permissions
-        run: |
-          chmod +x ./install_java.sh
-          chmod +x ./setup.sh
-          chmod +x ./bin/*
-          chmod +x ./bin/utilities/*
+            - name: Set execute permissions
+              run: |
+                  chmod +x ./*.sh
+                  chmod +x ./bin/*.sh
+                  chmod +x ./bin/utilities/*.sh
 
-      - name: Check changes
-        run: git status
+            - name: Check changes
+              run: git status
 
-      - name: Commit and push if changes
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git add -A
-          git diff-index --quiet HEAD || git commit -m "Set file permissions"
-          git push
+            - name: Commit and push if changes
+              run: |
+                  git config --global user.email "action@github.com"
+                  git config --global user.name "GitHub Action"
+                  git add -A
+                  git diff-index --quiet HEAD || git commit -m "Set file permissions"
+                  git push

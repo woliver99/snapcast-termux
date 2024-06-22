@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd "$(dirname "$0")" || exit
+BASE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+cd "$BASE_DIR" || exit
 
-bash "./utilities/snapserver_stop.sh"
-bash "./utilities/librespot_stop.sh"
+bash "$BASE_DIR/bin/utilities/snapserver_stop.sh"
+bash "$BASE_DIR/bin/utilities/librespot_stop.sh"
