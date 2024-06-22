@@ -30,7 +30,7 @@ function handle_sigint {
     echo "Stopping librespot and FFmpeg..."
     kill -SIGINT "$LIBRESPOT_PID"
     wait "$LIBRESPOT_PID"
-    kill -SIGINT "$FFMPEG_PID"
+    kill -9 "$FFMPEG_PID"
     wait "$FFMPEG_PID"
     rm -f "$PID_FILE"
     exit 0
