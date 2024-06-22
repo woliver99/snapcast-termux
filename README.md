@@ -9,11 +9,19 @@ pkg update && pkg upgrade
 ```
 
 ```bash
-pkg install git snapcast
+pkg install git snapcast ffmpeg
 ```
 
 ```bash
-git clone https://github.com/yourusername/snapcast-termux.git && cd snapcast-termux
+git clone https://github.com/yourusername/snapcast-termux.git
+```
+
+```bash
+bash "./snapcast-termux/setup.sh"
+```
+
+```bash
+snapserver-start.sh
 ```
 
 # TODO:

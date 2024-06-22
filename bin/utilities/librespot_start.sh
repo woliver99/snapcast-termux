@@ -3,6 +3,7 @@
 BASE_DIR="$(dirname "$(dirname "$(dirname "$(realpath "$0")")")")"
 PID_DIR="$BASE_DIR/pid"
 PID_FILE="$PID_DIR/librespot.pid"
+RESAMPLED_FILE="$PID_DIR/librespot_resampled.pcm"
 
 # Ensure the PID directory exists
 mkdir -p "$PID_DIR"
@@ -19,11 +20,18 @@ su -c "(cd '$BASE_DIR/librespot' && '$BASE_DIR/java/bin/java' -jar librespot-pla
 LIBRESPOT_PID=$!
 echo $LIBRESPOT_PID > "$PID_FILE"
 
+# Start FFmpeg to resample audio from 44.1kHz to 48kHz and output to a file
+ffmpeg -f s16le -ar 44100 -ac 2 -i "$PID_DIR/librespot.pcm" -ar 48000 -f s16le "$RESAMPLED_FILE" &
+
+FFMPEG_PID=$!
+
 # Function to handle SIGINT
 function handle_sigint {
-    echo "Stopping librespot..."
+    echo "Stopping librespot and FFmpeg..."
     kill -SIGINT "$LIBRESPOT_PID"
+    kill -SIGINT "$FFMPEG_PID"
     wait "$LIBRESPOT_PID"
+    wait "$FFMPEG_PID"
     rm -f "$PID_FILE"
     exit 0
 }
@@ -33,3 +41,4 @@ trap 'handle_sigint' SIGINT
 
 # Keep script running to maintain trap active
 wait $LIBRESPOT_PID
+wait $FFMPEG_PID
