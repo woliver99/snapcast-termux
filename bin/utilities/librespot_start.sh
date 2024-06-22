@@ -3,7 +3,7 @@
 BASE_DIR="$(dirname "$(dirname "$(dirname "$(realpath "$0")")")")"
 PID_DIR="$BASE_DIR/pid"
 PID_FILE="$PID_DIR/librespot.pid"
-RESAMPLED_FILE="$PID_DIR/librespot_resampled.pcm"
+PIPE_DIR="$BASE_DIR/pipe"
 
 # Ensure the PID directory exists
 mkdir -p "$PID_DIR"
@@ -21,7 +21,7 @@ LIBRESPOT_PID=$!
 echo $LIBRESPOT_PID > "$PID_FILE"
 
 # Start FFmpeg to resample audio from 44.1kHz to 48kHz and output to a file
-ffmpeg -f s16le -ar 44100 -ac 2 -i "$PID_DIR/librespot.pcm" -ar 48000 -f s16le "$RESAMPLED_FILE" &
+ffmpeg -f s16le -ar 44100 -ac 2 -i "$PIPE_DIR/librespot.pcm" -ar 48000 -f s16le "$PIPE_DIR/librespot_resampled.pcm" &
 
 FFMPEG_PID=$!
 
