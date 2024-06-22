@@ -14,4 +14,4 @@ read -r -p "Enter line number: " line_num
 sed -i "${line_num}d" "$BASE_DIR/snapcast/snapserver.conf"
 
 # Restart the server
-bash "$BASE_DIR/bin/restart_snapserver.sh"
+bash "$BASE_DIR/bin/snapserver-restart.sh"

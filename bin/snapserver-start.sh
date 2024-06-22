@@ -4,7 +4,7 @@ BASE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
 cd "$BASE_DIR" || exit
 
 # Stop the server if it's running
-bash "$BASE_DIR/bin/stop_snapserver.sh"
+bash "$BASE_DIR/bin/snapserver-stop.sh"
 
 # Copy the template configuration
 cp "$BASE_DIR/snapcast/snapserver.template.conf" "$BASE_DIR/snapcast/snapserver.conf"
@@ -19,4 +19,4 @@ bash "$BASE_DIR/bin/utilities/snapserver_start.sh" & echo "Snapserver started su
 
 bash "$BASE_DIR/bin/utilities/librespot_start.sh" & echo "Librespot started successfully."
 
-bash "$BASE_DIR/bin/ip_snapserver.sh"
+bash "$BASE_DIR/bin/snapserver-ip.sh"

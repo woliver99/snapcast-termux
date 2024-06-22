@@ -18,4 +18,4 @@ fi
 echo "source = tcp://${ip}:${port}?name=${name}&mode=server #config:${name}" >> "$BASE_DIR/snapcast/snapserver.conf"
 
 # Restart the server
-bash "$BASE_DIR/bin/utilities/restart_snapserver.sh"
+bash "$BASE_DIR/bin/utilities/snapserver-restart.sh"
