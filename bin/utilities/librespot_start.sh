@@ -41,4 +41,3 @@ trap 'handle_sigint' SIGINT
 
 # Keep script running to maintain trap active
 wait $LIBRESPOT_PID
-handle_sigint
