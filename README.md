@@ -9,7 +9,7 @@ pkg update && pkg upgrade
 ```
 
 ```bash
-pkg install git snapcast ffmpeg
+pkg install git snapcast-server ffmpeg
 ```
 
 ```bash
