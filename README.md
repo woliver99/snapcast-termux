@@ -13,7 +13,7 @@ pkg install git snapcast-server ffmpeg
 ```
 
 ```bash
-git clone https://github.com/yourusername/snapcast-termux.git
+git clone https://github.com/woliver99/snapcast-termux.git
 ```
 
 ```bash
