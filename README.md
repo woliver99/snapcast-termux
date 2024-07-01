@@ -21,6 +21,10 @@ bash "./snapcast-termux/setup.sh"
 ```
 
 ```bash
+source "$HOME/.bashrc"
+```
+
+```bash
 snapserver-start.sh
 ```
 
