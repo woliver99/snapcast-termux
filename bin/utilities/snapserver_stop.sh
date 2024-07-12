@@ -13,7 +13,7 @@ if [ -f "$PID_FILE" ]; then
     done
 
     # Kill ffmpeg
-    pkill -9 "ffmpeg"
+    pkill -9 "ffmpeg" > /dev/null 2>&1
 
     # Remove the PID file
     rm -f "$PID_FILE"

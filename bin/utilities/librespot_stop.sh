@@ -12,9 +12,13 @@ if [ -f "$PID_FILE" ]; then
     while kill -0 "$PID" 2>/dev/null; do
         sleep 1 # wait 1 second before checking again
     done
+
+    # Kill ffmpeg
+    pkill -9 "ffmpeg"
+
     # Remove the PID file
     rm -f "$PID_FILE"
-
+    
     echo "Librespot stopped successfully."
 else
     echo "Librespot is not running."
