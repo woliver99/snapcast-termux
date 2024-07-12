@@ -28,7 +28,7 @@ function handle_sigint {
     echo "Stopping librespot and FFmpeg..."
     kill -SIGINT "$LIBRESPOT_PID"
     wait "$LIBRESPOT_PID"
-    pkill -9 "ffmpeg -y -f s16le -ar 44100 -ac 2 -i $PIPE_DIR/librespot.pcm -ar 48000 -f s16le $PIPE_DIR/librespot_resampled.pcm"
+    pkill -9 "ffmpeg"
     rm -f "$PID_FILE"
     exit 0
 }

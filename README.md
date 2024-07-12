@@ -34,4 +34,6 @@ You might be wondering why im resampling librespot through ffmpeg. Currently Sna
 
 # TODO:
 
+-   Properly kill ffmpeg
+-   Check if pid is running before killing
 -   Restart librespot stream after snapcast restart, Use: https://github.com/librespot-org/librespot-java/tree/dev/api
