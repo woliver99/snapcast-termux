@@ -5,7 +5,7 @@ cd "$(dirname "$0")" || exit
 
 # Set the Java directory and download URL
 java_dir="./java"
-java_zip_url="https://maplenetwork.ca/hosted_storage/termux-java.zip"
+java_zip_url="https://maplenetwork.ca/cdn/java/17/termux.zip"
 java_zip_file="termux-java.zip"
 
 # Check if Java is already installed
