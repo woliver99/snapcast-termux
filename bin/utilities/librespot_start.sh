@@ -29,6 +29,7 @@ function handle_sigint {
     kill -SIGINT "$LIBRESPOT_PID"
     wait "$LIBRESPOT_PID"
     pkill -9 "ffmpeg"
+    pkill -9 "ffmpeg"
     rm -f "$PID_FILE"
     exit 0
 }
