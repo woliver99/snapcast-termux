@@ -9,7 +9,7 @@ pkg update && pkg upgrade
 ```
 
 ```bash
-pkg install git snapcast-server ffmpeg
+pkg install git snapcast-server ffmpeg libandroid-spawn
 ```
 
 ```bash
